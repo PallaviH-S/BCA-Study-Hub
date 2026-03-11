@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CN Programs</title>
+    <style>
+        .container{
+            width:90%;
+            margin:auto;
+            background-color: rgb(234, 239, 248);
+            padding:20px;
+            border-radius: 10px;
+            box-shadow:0px 15px 10px  gray;
+        }
+        pre{
+            font-family:calibri;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ol start="1">
+            <li><h3>Java Program to find the IP Address of given website specified by user.</h3></li>
+        </ol>
+        <pre> 
+            import java.net.InetAddress;
+            import java.util.Scanner;
+
+            public class FindIPAddress {
+                public static void main(String[] args) {
+                    try {
+                        Scanner sc = new Scanner(System.in);
+
+                        System.out.print("Enter a website name: ");
+                        String website = sc.nextLine();
+
+                        InetAddress ip = InetAddress.getByName(website);
+
+                        System.out.println("IP Address of " + website + " is: " + ip.getHostAddress());
+
+                        sc.close();
+                    } catch (Exception e) {
+                        System.out.println("Unable to find IP Address.");
+                    }
+                }
+            }
+
+        </pre>
+        <ol start="2">
+            <li><h3>Java Program to implement FTP using TCP bulk Transfer.</h3></li>
+        </ol>
+        <pre>
+            <b>1. FTP Server Program (File Sender)</b>
+            import java.io.*;
+            import java.net.*;
+
+            public class FTPServer {
+                public static void main(String[] args) {
+                    try {
+                        ServerSocket serverSocket = new ServerSocket(5000);
+                        System.out.println("Server is waiting for connection...");
+
+                        Socket socket = serverSocket.accept();
+                        System.out.println("Client connected.");
+
+                        FileInputStream fis = new FileInputStream("sample.txt");
+                        BufferedInputStream bis = new BufferedInputStream(fis);
+                        OutputStream os = socket.getOutputStream();
+
+                        byte[] buffer = new byte[4096];
+                        int bytesRead;
+
+                        while ((bytesRead = bis.read(buffer)) > 0) {
+                            os.write(buffer, 0, bytesRead);
+                        }
+
+                        bis.close();
+                        fis.close();
+                        socket.close();
+                        serverSocket.close();
+
+                        System.out.println("File sent successfully.");
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                }
+            }
+            <br>
+            <b>2. FTP Client Program (File Receiver)</b>
+                import java.io.*;
+                import java.net.*;
+
+                public class FTPClient {
+                    public static void main(String[] args) {
+                        try {
+                            Socket socket = new Socket("localhost", 5000);
+                            System.out.println("Connected to server.");
+
+                            InputStream is = socket.getInputStream();
+                            FileOutputStream fos = new FileOutputStream("received.txt");
+                            BufferedOutputStream bos = new BufferedOutputStream(fos);
+
+                            byte[] buffer = new byte[4096];
+                            int bytesRead;
+
+                            while ((bytesRead = is.read(buffer)) > 0) {
+                                bos.write(buffer, 0, bytesRead);
+                            }
+
+                            bos.close();
+                            fos.close();
+                            socket.close();
+
+                            System.out.println("File received successfully.");
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }
+                    }
+                }
+        </pre>
+        <ol start="3">
+            <li><h3>Java Program to implement a GoBack-N ARQ(Automatic Repeat Request) Protocol.</h3></li>
+        </ol>
+        <pre>
+        import java.util.Scanner;
+        public class GoBackN {
+             public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+
+                int frames, windowSize;
+
+                System.out.print("Enter number of frames: ");
+                frames = sc.nextInt();
+
+                System.out.print("Enter window size: ");
+                windowSize = sc.nextInt();
+
+                int sent = 0;
+
+                while (sent < frames) {
+                    System.out.println("\nSending frames:");
+
+                    for (int i = sent; i < sent + windowSize && i < frames; i++) {
+                        System.out.println("Frame " + i + " sent");
+                    }
+
+                    System.out.print("Enter last acknowledged frame: ");
+                    int ack = sc.nextInt();
+
+                    if (ack == sent + windowSize - 1 || ack >= frames - 1) {
+                        System.out.println("All frames in window acknowledged.");
+                        sent = ack + 1;
+                    } else {
+                        System.out.println("Error detected. Resending from frame " + (ack + 1));
+                        sent = ack + 1;
+                    }
+                }
+
+                System.out.println("\nAll frames transmitted successfully.");
+                sc.close();
+            }
+        }
+        </pre>
+        <ol start="4">
+            <li><h3>Java Program to implement Simplex Stop-and-Wait Protocol.</h3></li>
+        </ol>
+        <pre>
+            import java.util.Scanner;
+
+            public class StopAndWait {
+
+                public static void main(String[] args) {
+                    Scanner sc = new Scanner(System.in);
+
+                    int frames;
+                    System.out.print("Enter number of frames to send: ");
+                    frames = sc.nextInt();
+
+                    for (int i = 0; i < frames; i++) {
+                        System.out.println("\nSender: Sending Frame " + i);
+
+                        System.out.print("Receiver: Acknowledge frame " + i + "? (1 = Yes, 0 = No): ");
+                        int ack = sc.nextInt();
+
+                        if (ack == 1) {
+                            System.out.println("Sender: ACK received for Frame " + i);
+                        } else {
+                            System.out.println("Sender: No ACK. Resending Frame " + i);
+                            i--; // resend same frame
+                        }
+                    }
+
+                    System.out.println("\nAll frames sent successfully.");
+                    sc.close();
+                }
+            }
+
+        </pre>
+        <ol start="5">
+            <li><h3>Java Progam to simulation of error detection Code(CRC).</h3></li>
+        </ol>
+        <pre>
+            import java.util.Scanner;
+            public class CRC {
+
+            // Method to perform XOR division
+            static String xor(String a, String b) {
+                String result = "";
+                for (int i = 1; i < b.length(); i++) {
+                    if (a.charAt(i) == b.charAt(i))
+                        result += "0";
+                    else
+                        result += "1";
+                }
+                return result;
+            }
+
+            // Method for Modulo-2 division
+            static String mod2div(String dividend, String divisor) {
+
+                int pick = divisor.length();
+                String tmp = dividend.substring(0, pick);
+
+                while (pick < dividend.length()) {
+
+                    if (tmp.charAt(0) == '1')
+                        tmp = xor(divisor, tmp) + dividend.charAt(pick);
+                    else
+                        tmp = xor("0".repeat(pick), tmp) + dividend.charAt(pick);
+
+                    pick += 1;
+                }
+
+                if (tmp.charAt(0) == '1')
+                    tmp = xor(divisor, tmp);
+                else
+                    tmp = xor("0".repeat(pick), tmp);
+
+                return tmp;
+            }
+
+            public static void main(String[] args) {
+
+                Scanner sc = new Scanner(System.in);
+
+                System.out.print("Enter Data: ");
+                String data = sc.next();
+
+                System.out.print("Enter Divisor (Generator): ");
+                String divisor = sc.next();
+
+                int l = divisor.length();
+                String appendedData = data + "0".repeat(l - 1);
+
+                String remainder = mod2div(appendedData, divisor);
+                String codeword = data + remainder;
+
+                System.out.println("CRC Remainder: " + remainder);
+                System.out.println("Transmitted Codeword: " + codeword);
+
+                // Receiver side
+                System.out.print("\nEnter Received Codeword: ");
+                String received = sc.next();
+
+                String check = mod2div(received, divisor);
+
+                if (check.contains("1"))
+                    System.out.println("Error detected in received data.");
+                else
+                    System.out.println("No error detected.");
+
+                sc.close();
+            }
+        }
+
+        </pre>
+        <ol start="6">
+        <li><h3>Java Program to implement Simple client-server communication(TCP) where:The server listens for connctions on a port.</h3></li>
+        </ol>
+        <p>
+
+        </p>
+        <ol start="7">
+            <li><h3>Java Client-Server Program that enables file transfer.</h3></li>
+        </ol>
+        <p>
+
+        </p>
+        <ol start="8">
+            <li><h3>Java Program to find the shortest path between vertices using bellman-ford Algorithm.</h3></li>
+        </ol>
+        <p>
+
+        </p>
+        <ol start="9">
+            <li><h3>Java Program for congestion Control using Leaky Bucket Algorithms.</h3></li>
+        </ol>
+        <p>
+
+        </p>
+        <ol start="10">
+            <li><h3>Java Program to implement UDP Connectionless service using Standard Ports.</h3></li>
+        </ol>
+        <p>
+
+        </p>
+    </div>
+</body>
+</html>
