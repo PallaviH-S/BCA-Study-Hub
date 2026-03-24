@@ -6,24 +6,21 @@
     <title>BCA All in One</title>
     <style>
         body{
-        background-color:lightblue;
+        background-color:cadetblue;
         font-family:  'Arial Narrow';
         }
-        body{
-            background-color:floralwhite;
-        }
-        li{
-            background-color:antiquewhite;
-            font-style: calibri;
-        }
-        .container{
+        .card{
             width:80% ;
-            margin:auto;
+            margin:80px auto;
             background-color:blanchedalmond;
             padding: 20px;
             border-radius: 10px;
             box-shadow :0px 15px 10px gray;
-
+            text-align: center;
+        }
+        .card h2{
+            color:#1e4fbf;
+            margin-bottom: 15px;
         }
         h1,h3,h2,p,footer{
             text-align: center;
@@ -38,25 +35,80 @@
             font-weight: bold;
             margin: 8px;
         }
+        .box{
+            width:300px;
+            height:150px;
+            border:2px solid #007bff;
+            border-radius: 10px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #96beee;
+            margin:50px auto;
+        }
+        .line{
+            width:80%;
+            height:1px;
+            background:#ddd;
+            margin:10px auto 20px;
+        }
+        .card p{
+            color:black;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .btn.hover{
+            opacity:0.9;
+        }
     </style>
 
 </head>
 <body>
     <header>
-        <h2 style="color:mediumseagreen">🏆  Welcome to BCA StudyZone  🏆</h2> 
+        <h2 style="color:darkred">🏆  Welcome to BCA StudyZone  🏆</h2> 
     </header>
     <h1 style="color:darkblue;"> BCA Syllabus Notes</h1>
-    <p>All Semester Notes📚 Available in One Place</p>
+    <p><b>All Semester Notes📚 Available in One Place</b></p>
     <hr>
-    <section>
-    <div class="container">
+    <div class="card">
         <h3 style="color:crimson">🎓Explore Your Semester Notes📚</h3>
-        <a href="firstsemnotes.html" class="btn" class="section">BCA 1st Semester</a>
-        <a href="secondsemnotes.html" class="btn" class="section">BCA 2nd Semester</a>
-        <a href="Thirdsemnote.html" class="btn" class="section">BCA 3rd Semester</a>
-        <a href="fourthsemnotes.html" class="btn" class="section">BCA 4th Semester</a>
-        <a href="fifthsemnotes.html" class="btn" class="section">BCA 5th Semester</a>
-        <a href="sixthsemnotes.html" class="btn" class="section">BCA 6th Semester</a>
+        <div class="card p" class="card h2">
+            <h3>1st Semester</h3>
+            <div class="line"></div>
+            <p>C Programming, DBMS, Accountancy</p>
+            <a href="firstsemnotes.html" class="btn" class="section">BCA 1st Semester</a>
+        </div>
+        <div class="card p" class="card h2">
+            <h3>2nd Semester</h3>
+            <div class="line"></div>
+            <p>DSA, OOPS in JAVA, NASM</p>
+            <a href="secondsemnotes.html" class="btn" class="section">BCA 2nd Semester</a>
+        </div>
+        <div class="card p" class="card h2">
+            <h3>3rd Semester</h3>
+            <div class="line"></div>
+            <p>Python Programming, Adv.JAVA, OS</p>
+            <a href="Thirdsemnote.html" class="btn" class="section">BCA 3rd Semester</a>
+        </div>
+        <div class="card p" class="card h2">
+            <h3>4th Semester</h3>
+            <div class="line"></div>
+            <p>DAA, Web Programming, CN</p>
+            <a href="fourthsemnotes.html" class="btn" class="section">BCA 4th Semester</a>
+        </div>
+        <div class="card p" class="card h2">
+            <h3>5th Semester</h3>
+            <div class="line"></div>
+            <p>Software Engineering, Web content Management, Cyber security<br>
+            Data Analytics with R, C# using</p>
+            <a href="fifthsemnotes.html" class="btn" class="section">BCA 5th Semester</a>
+        </div>
+        <div class="card p" class="card h2">
+            <h3>6th Semester</h3>
+            <div class="line"></div>
+            <p>DSA, OOPS in JAVA, NASM</p>
+            <a href="sixthsemnotes.html" class="btn" class="section">BCA 6th Semester</a>
+        </div>
     </div>
     </section>
     
