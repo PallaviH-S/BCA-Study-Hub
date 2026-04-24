@@ -3,118 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BCA All in One</title>
+    <title>Login </title>
     <style>
         body{
-        background-color:cadetblue;
-        font-family:  'Arial Narrow';
+            font-size: 16px;
+            background-color:lightgrey;
         }
-        .card{
-            width:80% ;
-            margin:80px auto;
-            background-color:blanchedalmond;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow :0px 15px 10px gray;
+        h2{
             text-align: center;
+            border-bottom: 2px solid green;
         }
-        .card h2{
-            color:#1e4fbf;
-            margin-bottom: 15px;
+        form{
+            width:300px ;
+            background-color: #fff;
+            margin:50px auto 0;
+            padding: 10px 40px 40px;
+            border-bottom: 2px #fff;
+            border-radius :5px;
         }
-        h1,h3,h2,p,footer{
-            text-align: center;
+        input,select{
+            border:1px solid #ccc;
+            padding : 10px;
+            width:100%;
+            box-sizing: border-box;
+            border-radius:2px;
         }
-        .btn{
+        label{
+            display:block;
+            margin-bottom: 6px ;
+        }
+        div{
+            padding-bottom: 12px;
+        }
+        .form-inline{
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            padding:8px 10px 4px;
+        }
+        .form-inline label,.form-inline input{
             display:inline-block;
-            padding:25px 20px;
-            background-color:blueviolet;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
-            margin: 8px;
+            width:auto;
+            padding-right: 15px;
         }
-        .box{
-            width:300px;
-            height:150px;
-            border:2px solid #007bff;
-            border-radius: 10px;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #96beee;
-            margin:50px auto;
+        input[type="submit"]{
+            font-size: 20px;
+            border-color: black;
+            background-color: green;
+            box-shadow: 0 3px 0 grey;
+            color:white;
+            margin-top: 10px;
+            cursor:pointer;
         }
-        .line{
-            width:80%;
-            height:1px;
-            background:#ddd;
-            margin:10px auto 20px;
+        input[type="submit"]:hover{
+            background-color: darkgreen;
         }
-        .card p{
-            color:black;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-        .btn.hover{
-            opacity:0.9;
-        }
-    </style>
 
+    </style>
 </head>
 <body>
-    <header>
-        <h2 style="color:darkred">🏆  Welcome to BCA StudyZone  🏆</h2> 
-    </header>
-    <h1 style="color:darkblue;"> BCA Syllabus Notes</h1>
-    <p><b>All Semester Notes📚 Available in One Place</b></p>
-    <hr>
-    <div class="card">
-        <h3 style="color:crimson">🎓Explore Your Semester Notes📚</h3>
-        <div class="card p" class="card h2">
-            <h3>1st Semester</h3>
-            <div class="line"></div>
-            <p>C Programming, DBMS, Accountancy</p>
-            <a href="firstsemnotes.html" class="btn" class="section">BCA 1st Semester</a>
-        </div>
-        <div class="card p" class="card h2">
-            <h3>2nd Semester</h3>
-            <div class="line"></div>
-            <p>DSA, OOPS in JAVA, NASM</p>
-            <a href="secondsemnotes.html" class="btn" class="section">BCA 2nd Semester</a>
-        </div>
-        <div class="card p" class="card h2">
-            <h3>3rd Semester</h3>
-            <div class="line"></div>
-            <p>Python Programming, Adv.JAVA, OS</p>
-            <a href="Thirdsemnote.html" class="btn" class="section">BCA 3rd Semester</a>
-        </div>
-        <div class="card p" class="card h2">
-            <h3>4th Semester</h3>
-            <div class="line"></div>
-            <p>DAA, Web Programming, CN</p>
-            <a href="fourthsemnotes.html" class="btn" class="section">BCA 4th Semester</a>
-        </div>
-        <div class="card p" class="card h2">
-            <h3>5th Semester</h3>
-            <div class="line"></div>
-            <p>Software Engineering, Web content Management, Cyber security<br>
-            Data Analytics with R, C# using.NET Framework, Full Stack Development</p>
-            <a href="fifthsemnotes.html" class="btn" class="section">BCA 5th Semester</a>
-        </div>
-        <div class="card p" class="card h2">
-            <h3>6th Semester</h3>
-            <div class="line"></div>
-            <p>Data warehousing and mining, Cloud computing, Mobile application,<br>
-            AI&ML </p>
-            <a href="sixthsemnotes.html" class="btn" class="section">BCA 6th Semester</a>
+    <form>
+        <h2>Registration Form</h2>
+    <div>
+        
+        <!--Input Candidate name-->
+        <label>Candidate Name : </label>
+        <input type ="text"><br>
+        
+        <!--input Email-->
+        <label>Email Id : </label>
+        <input type="text"><br>
+
+        <!--input Mobile NO.-->
+        <label>Mobile Number</label>
+        <input type="tel"><br>
+    
+        <!--input Course-->
+        <label>Course</label>
+        <select name="Course">
+            <option>BCA</option>
+            <option>BBA</option>
+            <option>B.sc</option>
+            <option>B.com</option>
+            <option>BA</option>
+        </select>
+    </div>
+    <div>
+        <label>Gender</label>
+        <div class="form-inline">
+            <label>
+                <input type="radio" name="Gender" value="Male">Male
+            </label>
+            <label>
+                <input type="radio" name="Gender" value="Female">Female
+            </label>
         </div>
     </div>
-    </section>
+    <div>
+        <input type="submit" name="" value="Register">
+    </div>
+    </form>
     
-    <footer>
-        @ BCA Notes Hub||Created by Palvi
-    </footer>
+    
 </body>
 </html>
