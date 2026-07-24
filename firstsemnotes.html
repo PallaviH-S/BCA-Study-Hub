@@ -1,59 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BCA 1st Semester</title><style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCA 1st Semester</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background:white;
+    color:#222;
+    padding:20px;
+    line-height:1.8;
+}
+
+/* Container */
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+/* Heading */
+h2{
+    font-size:clamp(22px,3vw,32px);
+    margin-bottom:15px;
+}
+
+/* Subject List */
+ol{
+    padding-left:25px;
+    margin-bottom:30px;
+}
+
+li{
+    font-size:clamp(16px,2vw,22px);
+    margin:8px 0;
+    background:none;
+}
+
+/* Buttons */
+.btn{
+    display:inline-block;
+    padding:12px 20px;
+    background:#4CAF50;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:clamp(14px,2vw,18px);
+    margin:10px 0 30px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#388E3C;
+}
+
+/* Mobile */
+@media(max-width:600px){
+
     body{
-        background-color:lightblue;
-        font-family:  'Arial Narrow';
-        }
-        body{
-            background-color:floralwhite;
-        }
-        li{
-            background-color:antiquewhite;
-            font-style: calibri;
-        }
-        .container{
-            width:80% ;
-            margin:auto;
-            background-color:blanchedalmond;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow :0px 15px 10px gray;
-        }
-        .btn{
-            display:inline-block;
-            padding:10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            margin: 8px;
-        }
-    </style>
+        padding:15px;
+    }
+
+    h2{
+        font-size:22px;
+    }
+
+    li{
+        font-size:17px;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+
+}
+</style>
 
 </head>
+
 <body>
-    <div class="container">
-    <H2><u>I Semester BCA 2025-26</u></H2>
-    <ol>
-        <li>Kannada(ಸಾಹಿತ್ಯ ಸುಮನ-1)</li>
-        <li>Basic English</li>
-        <li>Computer Concepts and C Programming</li>
-        <li>Database Management System</li>
-        <li>Accountancy</li>
-        <li>Indian Constitution Values</li>
-    </ol>
 
-    
-    <h2><u> BCA 1st sem Model Question Papers Click Below 👇 </u></h2>
-        <a href="DSAMODELQPS.pdf" class="btn">1st sem MODEL Question Paper</a>
+<div class="container">
 
-    <h2><u> BCA PYQ Papers Click Below 👇 </u></h2>
-        <a href="SEPPYQDSA(1).pdf" class="btn">1st sem PYQ Paper</a>    
-    </div>
+<h2><u>I Semester BCA 2025-26</u></h2>
+
+<ol>
+<li>Kannada (ಸಾಹಿತ್ಯ ಸುಮನ-1)</li>
+<li>Basic English</li>
+<li>Computer Concepts and C Programming</li>
+<li>Database Management System</li>
+<li>Accountancy</li>
+<li>Indian Constitution Values</li>
+</ol>
+
+<h2><u>BCA 1st Sem Model Question Papers 👇</u></h2>
+
+<a href="DSAMODELQPS.pdf" class="btn">
+1st Sem MODEL Question Paper
+</a>
+
+<h2><u>BCA 1st Sem Previous Year Question Papers 👇</u></h2>
+
+<a href="SEPPYQDSA(1).pdf" class="btn">
+1st Sem PYQ Paper
+</a>
+
+</div>
+
 </body>
 </html>
