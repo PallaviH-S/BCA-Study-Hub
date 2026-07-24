@@ -48,19 +48,18 @@ li{
 /* Buttons */
 .btn{
     display:inline-block;
-    padding:12px 20px;
-    background:#4CAF50;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
+    padding:10px 20px;
+    background:none;      /* Removes green background */
+    color:black;          /* Text color */
+    text-decoration:underline;
+    border:none;          /* Removes border */
+    border-radius:0;
     font-weight:bold;
-    font-size:clamp(14px,2vw,18px);
-    margin:10px 0 30px;
-    transition:0.3s;
+    margin:8px 0;
 }
 
 .btn:hover{
-    background:#8e386a;
+    background:#388E3C;
 }
 
 /* Mobile */
@@ -116,6 +115,11 @@ li{
 </a>
 
 </div>
+<script>
+document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+});
+</script>
 
 </body>
 </html>
